@@ -2,21 +2,18 @@ CC = gcc
 
 CCFLAGS = -g
 
-OBJ = tree.o functions.o main.o
+OBJ = tree.o main.o
 
 .SUFFIXES: .c .o
 
 main: $(OBJ)
 	@$(CC) $(CCFLAGS) $(OBJ) -o main
 
-main.o: funcs.o sort.o
+main.o: tree.o
 	$(CC) -c $(CCFLAGS) main.c
 
-functions.o: functions.h
-	$(CC) -c $(CCFLAGS) functions.h
-
-tree.o: tree.h
-	$(CC) -c $(CCFLAGS) tree.h
+tree.o: tree.h tree.c
+	$(CC) -c $(CCFLAGS) tree.h tree.c
 
 clean:
 	@rm -f *.o *.gch main
