@@ -21,20 +21,26 @@ void tree_add_node(tree **root, float mul, char var) {
     }
 }
 
-void tree_print (tree *root) {
-    if (root == NULL) {
+void tree_print(tree *root, int level)
+{ // печать древа
+    for (int i = 0; i < level; i++)
+    {
+        printf(" ");
+    }
+    if (root == NULL)
+    {
+        printf("NULL \n");
         return;
     }
-    else {
-        if (root->multiplier != 1.0) {
-            printf("%f * ", root->multiplier);
-        }
-        if (root->variable != '_') {
-            printf("%c * ", root->variable);
-        }
+    else if(root->variable != '_')
+    {
+        printf("* \n%f %c \n", root->multiplier, root->variable);
     }
-    tree_print(root->left);
-    tree_print(root->right);
+    else {
+        printf("* \n%f \n", root->multiplier);
+    }
+    tree_print(root->left, level + 1);
+    tree_print(root->right, level + 1);
 }
 
 float tree_simplify(tree **root) {

@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
         }
         else if (temp == 2)
         {
-            tree_print(root);
+            tree_print(root, 0);
         }
         else if (temp == 3)
         {

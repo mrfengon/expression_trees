@@ -12,7 +12,7 @@ typedef struct tree
 
 tree* tree_create_node(float mul, char var);
 void tree_add_node(tree** root, float mul, char var);
-void tree_print(tree* root);
+void tree_print(tree* root, int level);
 float tree_simplify(tree** root);
 
 #endif
